@@ -97,6 +97,10 @@ const MapComponent: React.FC = () => {
     setDrawType(event.target.value as "Point" | "LineString" | "Polygon");
   };
 
+  const handleReload = () => {
+    window.location.reload()
+  }
+
   return (
     <div>
       <div className="p-2">
@@ -108,9 +112,17 @@ const MapComponent: React.FC = () => {
         </div>
 
         <h2 className="text-center font-weight-600">
-          Select draw type and start drawing by first click on the map, when you finish
-          drawing click once again to get dimension.
+          Select draw type and start drawing by first click on the map, when you
+          finish drawing click once again where you left to get dimension.
         </h2>
+        <div>
+          <button
+            className="p-2 bg-purple-400 rounded-md"
+            onClick={handleReload}
+          >
+            Reload
+          </button>
+        </div>
         <label htmlFor="drawType ">Draw Type:</label>
         <select id="drawType" value={drawType} onChange={handleDrawTypeChange}>
           <option value="Point">Point</option>
